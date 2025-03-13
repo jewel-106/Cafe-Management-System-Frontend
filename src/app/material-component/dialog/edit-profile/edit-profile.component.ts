@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit {
     this.profileForm = this.fb.group({
       id: [data?.id, Validators.required], // User ID (hidden)
       name: [data?.name, Validators.required],
-      contactNumber: [data?.contactNumber, [Validators.required, Validators.pattern(/^\d{10,15}$/)]],
+      contact_number: [data?.contact_number, [Validators.required, Validators.pattern(/^\d{10,15}$/)]],
       email: [data?.email, [Validators.required, Validators.email]]
     });
   }
@@ -71,7 +71,7 @@ export class EditProfileComponent implements OnInit {
     // Create a FormData object to send the form data and file
     const formData = new FormData();
     formData.append('name', this.profileForm.value.name);
-    formData.append('contactNumber', this.profileForm.value.contactNumber);
+    formData.append('contact_number', this.profileForm.value.contact_number);
     formData.append('email', this.profileForm.value.email);
 
     if (this.selectedFile) {

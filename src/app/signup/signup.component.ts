@@ -31,7 +31,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       name: [null, [Validators.required, Validators.pattern(GlobalConstants.nameRegex)]],
       email: [null, [Validators.required, Validators.pattern(GlobalConstants.emailRegex)]],
-      contactNumber: [null, [Validators.required]],
+      contact_number: [null, [Validators.required]],
       password: [null, [Validators.required]],
     });
   }
@@ -98,7 +98,7 @@ export class SignupComponent implements OnInit {
     const formData = new FormData();
     formData.append("name", this.signupForm.value.name);
     formData.append("email", this.signupForm.value.email);
-    formData.append("contactNumber", this.signupForm.value.contactNumber);
+    formData.append("contact_number", this.signupForm.value.contactNumber);
     formData.append("password", this.signupForm.value.password);
     if (this.selectedFile) {
       formData.append("profile_photo", this.selectedFile, this.selectedFile.name); // Ensure this matches the server's expected field name

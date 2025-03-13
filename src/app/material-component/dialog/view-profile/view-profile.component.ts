@@ -19,7 +19,7 @@ export class ViewProfileComponent implements OnInit {
   user: any = {}; // Initialize with an empty object
   responseMessage: any;
   dataSource: any[] = [];
-  displayedColumns: string[] = ['name', 'contactNumber', 'email', 'password', 'status', 'role'];
+  displayedColumns: string[] = ['name', 'contact_number', 'email', 'password', 'status', 'role'];
 
   constructor(
     private userService: UserService,
