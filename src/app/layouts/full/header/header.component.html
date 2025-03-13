@@ -1,0 +1,35 @@
+<style>
+    .profile-btn {
+        padding: 0; /* Remove extra button padding */
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+    }
+    
+    .profile-img {
+        width: 36px; /* Adjust size */
+        height: 36px; 
+        border-radius: 50%; /* Make it circular */
+        object-fit: cover; /* Ensure the image is properly cropped */
+        border: 2px solid #fff; /* Optional: Add border for a clean look */
+    }
+    </style>
+    
+    <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+    
+
+
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item (click)="viewProfile()">
+        <mat-icon>visibility</mat-icon> View Profile
+    </button>
+    <button mat-menu-item (click)="changePassword()">
+        <mat-icon>password</mat-icon> Change Password
+    </button>
+    <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon> Sign Out
+    </button>
+</mat-menu>

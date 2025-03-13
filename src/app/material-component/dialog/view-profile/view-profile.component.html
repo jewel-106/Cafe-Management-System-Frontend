@@ -1,0 +1,68 @@
+<mat-card class="profile-container">
+  <!-- Profile Header -->
+  <div class="profile-header">
+    <!-- Profile Image -->
+    <img
+      [src]="user.profile_photo"
+      alt="Profile Image"
+      class="profile-image"
+    />
+
+    <!-- User Name -->
+    <h2>{{ user.name }}</h2>
+
+    <!-- User Status Chip -->
+    <mat-chip [color]="user.status === 'Active' ? 'primary' : (user.status === 'Inactive' ? 'warn' : 'accent')">
+      <mat-icon *ngIf="user.status === 'Active'">check_circle</mat-icon>
+      <mat-icon *ngIf="user.status === 'Inactive'">block</mat-icon>
+      {{ user.status }}
+    </mat-chip>
+  </div>
+
+  <!-- Divider -->
+  <mat-divider></mat-divider>
+
+  <!-- Profile Details -->
+  <mat-card-content *ngIf="user" class="profile-details">
+    <!-- Email -->
+    <div class="info-row">
+      <mat-icon>email</mat-icon>
+      <span><strong>Email:</strong> {{ user.email }}</span>
+    </div>
+
+    <!-- Contact Number -->
+    <div class="info-row">
+      <mat-icon>phone</mat-icon>
+      <span><strong>Contact:</strong> {{ user.contactNumber }}</span>
+    </div>
+
+    <!-- Password -->
+    <div class="info-row">
+      <mat-icon>vpn_key</mat-icon>
+      <span><strong>Password:</strong> ********</span>
+      <button mat-button color="primary" (click)="changePassword()">Change</button>
+    </div>
+
+    <!-- Role -->
+    <div class="info-row">
+      <mat-icon>verified_user</mat-icon>
+      <span><strong>Role:</strong> {{ user.role }}</span>
+    </div>
+  </mat-card-content>
+
+  <!-- Divider -->
+  <mat-divider></mat-divider>
+
+  <!-- Action Buttons -->
+  <mat-card-actions class="action-buttons">
+    <!-- Edit Profile Button -->
+    <button mat-flat-button color="accent" (click)="editProfile()">
+      <mat-icon>edit</mat-icon> Edit Profile
+    </button>
+
+    <!-- Delete Account Button -->
+    <button mat-flat-button color="warn" (click)="deleteAccount()" [disabled]="true">
+      <mat-icon>delete</mat-icon> Delete Account
+    </button>
+  </mat-card-actions>
+</mat-card>
