@@ -11,6 +11,7 @@ import { CategoryService } from 'src/app/services/category.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { GlobalConstants } from 'src/app/shared/global-constants';
 import { CategoryComponent } from '../dialog/category/category.component';
+import { ConfirmationComponent } from '../dialog/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-manage-category',
@@ -93,4 +94,37 @@ export class ManageCategoryComponent implements OnInit {
       }
     );
   }
+
+  handleDeleteAction(id: number) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = {
+      message: 'Are you sure you want to delete this category?',
+    };
+    const dialogRef = this.dialog.open(ConfirmationComponent, dialogConfig);
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.deleteCategory(id);
+      }
+    });
+  }
+  
+  deleteCategory(id: number) {
+    this.ngxService.start();
+    this.categoryService.delete(id).subscribe(
+      (response: any) => {
+        this.ngxService.stop();
+        this.tableData(); // Refresh the table
+        this.snackbarService.openSnackBar('Category deleted successfully', '');
+      },
+      (error: any) => {
+        this.ngxService.stop();
+        this.responseMessage = error.error?.message || GlobalConstants.genericError;
+        this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
+      }
+    );
+  }
+  
+
+
 }

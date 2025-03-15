@@ -13,7 +13,7 @@ import { GlobalConstants } from 'src/app/shared/global-constants';
 })
 export class MangeUserComponent implements OnInit {
 
-  displayedColumns:string[] = ['name','email','contactNumber','status'];
+  displayedColumns:string[] = ['name','email','contact_number','status'];
   dataSource:any;
   responseMessage:any;
 

@@ -18,7 +18,7 @@ import { ViewProfileComponent } from '../dialog/view-profile/view-profile.compon
 })
 export class ViewBillComponent implements OnInit {
 
-  displayedColumns: string[] = ['name','email','contactNumber','paymentMethod','total','view'];
+  displayedColumns: string[] = ['name','email','contact_number','payment_method','total','view'];
   dataSource:any;
   responseMessage:any;
 
@@ -76,10 +76,10 @@ export class ViewBillComponent implements OnInit {
       name:values.name,
       email:values.email,
       uuid:values.uuid,
-      contactNumber:values.contactNumber,
-      paymentMethod:values.paymentMethod,
-      totalAmount:values.totalAmount,
-      productDetails:values.productDetails
+      contact_number:values.contact_number,
+      payment_method:values.payment_method,
+      totalAmount:values.total,
+      productDetails:values.product_details
     }
     this.billService.getPDF(data).subscribe(
       (response)=>{

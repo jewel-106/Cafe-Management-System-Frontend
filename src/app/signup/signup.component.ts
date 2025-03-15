@@ -98,7 +98,7 @@ export class SignupComponent implements OnInit {
     const formData = new FormData();
     formData.append("name", this.signupForm.value.name);
     formData.append("email", this.signupForm.value.email);
-    formData.append("contact_number", this.signupForm.value.contactNumber);
+    formData.append("contact_number", this.signupForm.value.contact_number);
     formData.append("password", this.signupForm.value.password);
     if (this.selectedFile) {
       formData.append("profile_photo", this.selectedFile, this.selectedFile.name); // Ensure this matches the server's expected field name

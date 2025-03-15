@@ -22,9 +22,9 @@ export class ViewBillProductsComponent implements OnInit {
 
    // Ensure productDetails is parsed correctly
     try {
-      this.dataSource = typeof this.dialogData.data.productDetails === 'string'
-        ? JSON.parse(this.dialogData.data.productDetails)
-        : this.dialogData.data.productDetails;
+      this.dataSource = typeof this.dialogData.data.product_details === 'string'
+        ? JSON.parse(this.dialogData.data.product_details)
+        : this.dialogData.data.product_details;
     } catch (error) {
       console.error('Error parsing productDetails:', error);
       this.dataSource = [];

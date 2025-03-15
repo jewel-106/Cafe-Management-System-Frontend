@@ -18,7 +18,7 @@ export class ManageProductComponent implements OnInit {
   displayedColumns: string[] = [
     'serial',
     'name',
-    'categoryName',
+    'categoryname',
     'price',
     'description',
     'edit',

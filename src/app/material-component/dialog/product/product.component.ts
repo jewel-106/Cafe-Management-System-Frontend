@@ -31,7 +31,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.productForm = this.formBuilder.group({
       name:[null,[Validators.required,Validators.pattern(GlobalConstants.nameRegex)]],
-      categoryId:[null,Validators.required],
+      categoryid:[null,Validators.required],
       price:[null,Validators.required],
       description:[null,Validators.required]
     })
@@ -69,7 +69,7 @@ export class ProductComponent implements OnInit {
     var formData = this.productForm.value;
     var data = {
       name:formData.name,
-      categoryId:formData.categoryId,
+      categoryid:formData.categoryid,
       price:formData.price,
       description:formData.description,
     }
@@ -93,7 +93,7 @@ export class ProductComponent implements OnInit {
     var data = {
       id: this.dialogData.data.id,
       name:formData.name,
-      categoryId:formData.categoryId,
+      categoryid:formData.categoryid,
       price:formData.price,
       description:formData.description,
     }
