@@ -1,0 +1,34 @@
+<div class="about-container">
+    <h2>About Us</h2>
+    <p>Welcome to <strong>{{ cafeName }}</strong>, where passion meets perfection in every cup!</p>
+  
+    <div class="about-section">
+      <h3>Our Story</h3>
+      <p>Founded in {{ establishedYear }}, {{ cafeName }} was built with the vision of creating a cozy and friendly café where people can relax, work, and enjoy the best coffee in town.</p>
+    </div>
+  
+    <div class="about-section">
+      <h3>Our Mission</h3>
+      <p>{{ mission }}</p>
+    </div>
+  
+    <div class="about-section">
+      <h3>Our Values</h3>
+      <ul>
+        <li *ngFor="let value of values">✔️ {{ value }}</li>
+      </ul>
+    </div>
+  
+    <div class="about-section">
+      <h3>Our Specialties</h3>
+      <ul>
+        <li *ngFor="let item of specialItems">☕ {{ item }}</li>
+      </ul>
+    </div>
+  
+    <div class="about-section">
+      <h3>Join Us</h3>
+      <p>Visit us and experience the best coffee and food in a welcoming environment. We look forward to serving you!</p>
+    </div>
+  </div>
+  

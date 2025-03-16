@@ -21,6 +21,10 @@ import { ViewBillComponent } from './view-bill/view-bill.component';
 import { MangeUserComponent } from './mange-user/mange-user.component';
 import { ViewProfileComponent } from './dialog/view-profile/view-profile.component';
 import { EditProfileComponent } from './dialog/edit-profile/edit-profile.component';
+import { ManageOurMenuComponent } from './manage-our-menu/manage-our-menu.component';
+import { OurMenuComponent } from './dialog/our-menu/our-menu.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   imports: [
@@ -46,7 +50,11 @@ import { EditProfileComponent } from './dialog/edit-profile/edit-profile.compone
     ViewBillComponent,
     MangeUserComponent,
     ViewProfileComponent,
-    EditProfileComponent    
+    EditProfileComponent,
+    ManageOurMenuComponent,
+    OurMenuComponent,
+    ContactUsComponent,
+    AboutUsComponent    
   ]
 })
 export class MaterialComponentsModule {}

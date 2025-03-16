@@ -12,7 +12,11 @@ const MENUITEMS = [
     { state:'product',name:'Manage Product',icon:'inventory',role:'admin'},
     { state:'order',name:'Manage Order',icon:'list_alt',role:''},
     { state:'bill',name:'View Bill',icon:'import_contacts',role:''},
-    { state:'user',name:'View User',icon:'people',role:'admin'}
+    { state:'user',name:'View User',icon:'people',role:'admin'},
+    { state: 'our-menu', name: 'Our Menu', icon: 'restaurant', role: '' },
+    { state: 'contact-us', name: 'Contact Us', icon: 'contact_support', role: '' },
+    { state: 'about-us', name: 'About Us', icon: 'info', role: '' },
+    
 ];
 
 @Injectable()
