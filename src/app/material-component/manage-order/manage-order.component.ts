@@ -51,14 +51,14 @@ export class ManageOrderComponent implements OnInit {
         null,
         [Validators.required, Validators.pattern(GlobalConstants.emailRegex)],
       ],
-      contactNumber: [
+      contact_number: [
         null,
         [
           Validators.required,
           Validators.pattern(GlobalConstants.contactNumberRegex),
         ],
       ],
-      paymentMethod: [null, [Validators.required]],
+      payment_method: [null, [Validators.required]],
       product: [null, [Validators.required]],
       category: [null, [Validators.required]],
       quantity: [null, [Validators.required]],
@@ -164,9 +164,9 @@ export class ManageOrderComponent implements OnInit {
       this.totalAmount === 0 ||
       this.manageOrderForm.controls['name'].value === null ||
       this.manageOrderForm.controls['email'].value === null ||
-      this.manageOrderForm.controls['contactNumber'].value === null ||
-      this.manageOrderForm.controls['paymentMethod'].value === null ||
-      !this.manageOrderForm.controls['contactNumber'].valid ||
+      this.manageOrderForm.controls['contact_number'].value === null ||
+      this.manageOrderForm.controls['payment_method'].value === null ||
+      !this.manageOrderForm.controls['contact_number'].valid ||
       !this.manageOrderForm.controls['email'].valid
     )
       return true;
@@ -215,12 +215,12 @@ export class ManageOrderComponent implements OnInit {
     var data = {
       name: formData.name,
       email: formData.email,
-      contactNumber: formData.contactNumber,
-      paymentMethod: formData.paymentMethod,
+      contact_number: formData.contact_number,
+      payment_method: formData.payment_method,
       totalAmount: this.totalAmount,
-      productDetails: JSON.stringify(this.dataSource),
+      product_details: JSON.stringify(this.dataSource),
     };
-    console.log("product Details: ",data.productDetails);
+    console.log("product Details: ",data.product_details);
     this.billService.generateReport(data).subscribe(
       (response: any) => {
         this.downloadFile(response?.uuid);

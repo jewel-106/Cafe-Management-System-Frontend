@@ -28,22 +28,22 @@
 
                 <mat-form-field appearance="fill" fxFlex>
                     <mat-label>Contact Number</mat-label>
-                    <input matInput formControlName="contactNumber" required>
-                    <mat-error *ngIf="manageOrderForm.controls.contactNumber.touched && manageOrderForm.controls.contactNumber.invalid">
-                        <span *ngIf="manageOrderForm.controls.contactNumber.errors.required">This field is mandatory</span>
-                        <span *ngIf="manageOrderForm.controls.contactNumber.errors.pattern">This field is invalid</span>
+                    <input matInput formControlName="contact_number" required>
+                    <mat-error *ngIf="manageOrderForm.controls.contact_number.touched && manageOrderForm.controls.contact_number.invalid">
+                        <span *ngIf="manageOrderForm.controls.contact_number.errors.required">This field is mandatory</span>
+                        <span *ngIf="manageOrderForm.controls.contact_number.errors.pattern">This field is invalid</span>
                     </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" fxFlex>
                     <mat-label>Payment Method</mat-label>
-                    <mat-select mat-option matInput formControlName="paymentMethod" required>
+                    <mat-select mat-option matInput formControlName="payment_method" required>
                         <mat-option value="Cash">Cash</mat-option>
                         <mat-option value="Credit Card">Credit Card</mat-option>
                         <mat-option value="Debit Card">Debit Card</mat-option>
                     </mat-select>
-                    <mat-error *ngIf="manageOrderForm.controls.paymentMethod.touched && manageOrderForm.controls.paymentMethod.invalid">
-                        <span *ngIf="manageOrderForm.controls.paymentMethod.errors.required">This field is mandatory</span>
+                    <mat-error *ngIf="manageOrderForm.controls.payment_method.touched && manageOrderForm.controls.payment_method.invalid">
+                        <span *ngIf="manageOrderForm.controls.payment_method.errors.required">This field is mandatory</span>
                     </mat-error>
                 </mat-form-field>
             </div>
