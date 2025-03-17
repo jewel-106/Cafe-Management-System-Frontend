@@ -74,9 +74,9 @@ export class EditProfileComponent implements OnInit {
     formData.append('contact_number', this.profileForm.value.contact_number);
     formData.append('email', this.profileForm.value.email);
 
-    if (this.selectedFile) {
-      formData.append('profilePhoto', this.selectedFile);
-    }
+    // if (this.selectedFile) {
+    //   formData.append('profilePhoto', this.selectedFile);
+    // }
 
     this.userService.updateProfile(formData).subscribe(
       (response: any) => {
