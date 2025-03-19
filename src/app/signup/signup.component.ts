@@ -37,57 +37,13 @@ export class SignupComponent implements OnInit {
   }
 
   // Handle file selection
-  onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      if (file.size > 10 * 1024 * 1024) {  // 10 MB limit
-        alert('File size exceeds the limit of 10MB');
-        return;
-      }
-      this.selectedFile = file;
-  
-      // Preview the image
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+  onFileSelected(event: any) {
+    if (event.target.files.length > 0) {
+      this.selectedFile = event.target.files[0];
     }
   }
 
-  // handleSubmit(): void {
-  //   if (!this.signupForm.valid) {
-  //     console.log('Form is invalid');
-  //     return;
-  //   }
-
-  //   this.ngxService.start();
-  //   const formData = new FormData();
-  //   formData.append("name", this.signupForm.value.name);
-  //   formData.append("email", this.signupForm.value.email);
-  //   formData.append("contactNumber", this.signupForm.value.contactNumber);
-  //   formData.append("password", this.signupForm.value.password);
-  //   if (this.selectedFile) {
-  //     formData.append("profile_photo", this.selectedFile, this.selectedFile.name);
-  //   }
-
-  //   this.userService.signup(formData).subscribe(
-  //     (response: any) => {
-  //       this.ngxService.stop();
-  //       this.dialogRef.close();
-  //       this.responseMessage = response?.message;
-  //       this.snackbarService.openSnackBar(this.responseMessage, '');
-  //       this.router.navigate(['/']);
-  //     },
-  //     (error) => {
-  //       this.ngxService.stop();
-  //       console.error('Error during signup:', error);
-  //       this.responseMessage = error.error?.message || GlobalConstants.genericError;
-  //       this.snackbarService.openSnackBar(this.responseMessage, GlobalConstants.error);
-  //     }
-  //   );
-  // }
-
+  
   handleSubmit(): void {
     if (!this.signupForm.valid) {
       console.log('Form is invalid');

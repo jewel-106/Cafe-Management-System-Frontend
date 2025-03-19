@@ -36,7 +36,8 @@ export class EditProfileComponent implements OnInit {
       id: [data?.id, Validators.required], // User ID (hidden)
       name: [data?.name, Validators.required],
       contact_number: [data?.contact_number, [Validators.required, Validators.pattern(/^\d{10,15}$/)]],
-      email: [data?.email, [Validators.required, Validators.email]]
+      email: [data?.email, [Validators.required, Validators.email]],
+      profile_photo:['']
     });
   }
 
@@ -44,20 +45,8 @@ export class EditProfileComponent implements OnInit {
 
   // Handle file selection
   onFileSelected(event: any): void {
-    const file = event.target.files[0];
-    if (file) {
-      if (file.size > 10 * 1024 * 1024) {  // 10 MB limit
-        alert('File size exceeds the limit of 10MB');
-        return;
-      }
-      this.selectedFile = file;
-
-      // Preview the image
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result as string;
-      };
-      reader.readAsDataURL(file);
+    if (event.target.files && event.target.files[0]) {
+      this.selectedFile = event.target.files[0];
     }
   }
 
@@ -74,9 +63,9 @@ export class EditProfileComponent implements OnInit {
     formData.append('contact_number', this.profileForm.value.contact_number);
     formData.append('email', this.profileForm.value.email);
 
-    // if (this.selectedFile) {
-    //   formData.append('profilePhoto', this.selectedFile);
-    // }
+    if (this.selectedFile) {
+      formData.append('profile_photo', this.selectedFile);
+    }
 
     this.userService.updateProfile(formData).subscribe(
       (response: any) => {
